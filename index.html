@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#1e40af">
+    <title>Igreja Assembleia de Deus - Bem-Vindos</title>
+    
+    <!-- Carrega o Tailwind CSS para estilos -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Carrega a fonte "Playfair Display" e "Inter" do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Swiper CSS para o carrossel -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    
+    <style>
+        /* Fontes personalizadas */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Efeito de rolagem suave */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Gradiente personalizado */
+        .gradient-overlay {
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.95) 0%, rgba(79, 70, 229, 0.9) 100%);
+        }
+        
+        /* Efeito de vidro fosco */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+        }
+        
+        /* Animações personalizadas */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        /* ===== ESTILOS PARA APP MOBILE ===== */
+        
+        /* Remove o bounce do Safari no iOS */
+        body {
+            overscroll-behavior-y: none;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        /* Otimização de toque */
+        * {
+            -webkit-tap-highlight-color: rgba(79, 70, 229, 0.2);
+            touch-action: manipulation;
+        }
+        
+        /* Header mobile fixo estilo app */
+        @media (max-width: 768px) {
+            header {
+                padding: 12px 16px !important;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+            }
+            
+            .header-logo {
+                width: 40px !important;
+                height: 40px !important;
+            }
+            
+            /* Botão de menu mobile maior */
+            #menu-button {
+                padding: 10px !important;
+                width: 44px;
+                height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            /* Menu mobile estilo app */
+            #mobile-menu {
+                max-height: calc(100vh - 70px);
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            #mobile-menu a {
+                padding: 16px 20px !important;
+                font-size: 16px;
+                border-bottom: 1px solid #f3f4f6;
+            }
+            
+            /* Hero section mobile */
+            #inicio {
+                min-height: 100vh !important;
+                padding-top: 70px !important;
+            }
+            
+            #inicio h1 {
+                font-size: 2.5rem !important;
+                line-height: 1.2 !important;
+            }
+            
+            #inicio p {
+                font-size: 1.125rem !important;
+            }
+            
+            /* Botões mobile maiores (44px mínimo para touch) */
+            .btn-mobile {
+                min-height: 48px !important;
+                padding: 14px 24px !important;
+                font-size: 16px !important;
+            }
+            
+            /* Cards mobile otimizados */
+            section {
+                padding-top: 3rem !important;
+                padding-bottom: 3rem !important;
+            }
+            
+            /* Títulos mobile */
+            h2 {
+                font-size: 2rem !important;
+            }
+            
+            h3 {
+                font-size: 1.5rem !important;
+            }
+            
+            /* Espaçamento mobile */
+            .container {
+                padding-left: 16px !important;
+                padding-right: 16px !important;
+            }
+            
+            /* Carrossel mobile full width */
+            .gallerySwiper {
+                margin-left: -16px !important;
+                margin-right: -16px !important;
+                width: calc(100% + 32px) !important;
+            }
+            
+            .swiper-slide img {
+                height: 300px !important;
+            }
+            
+            /* Mensagens inspiradoras mobile */
+            #biblia .grid {
+                gap: 1rem !important;
+            }
+            
+            #biblia button img {
+                height: 200px !important;
+            }
+            
+            /* Footer mobile */
+            footer {
+                padding-bottom: env(safe-area-inset-bottom) !important;
+            }
+            
+            /* Inputs e selects mobile */
+            input, select, textarea {
+                font-size: 16px !important; /* Evita zoom no iOS */
+                min-height: 44px !important;
+            }
+            
+            /* Remover scroll horizontal */
+            body, html {
+                overflow-x: hidden !important;
+                max-width: 100vw !important;
+            }
+            
+            /* Safe area para iPhone */
+            .safe-top {
+                padding-top: env(safe-area-inset-top);
+            }
+            
+            .safe-bottom {
+                padding-bottom: env(safe-area-inset-bottom);
+            }
+            
+            /* Otimização de imagens mobile */
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+        
+        /* Estilos para PWA */
+        @media (display-mode: standalone) {
+            /* Quando aberto como PWA */
+            body {
+                padding-top: env(safe-area-inset-top);
+            }
+        }
+        
+        /* Animação de fade in */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        /* Estilo para a aba de doação ativa */
+        .tab-active {
+            background: linear-gradient(to right, #2563eb, #4f46e5);
+            color: white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Estilo para a aba inativa */
+        .tab-inactive {
+            background-color: #e5e7eb;
+            color: #374151;
+        }
+        
+        .tab-inactive:hover {
+            background-color: #d1d5db;
+        }
+        
+        /* Bíblia Online - Estilização customizada */
+        .bible-container {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .bible-reader {
+            max-height: 650px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #a78bfa #f3f4f6;
+        }
+        
+        .bible-reader::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        .bible-reader::-webkit-scrollbar-track {
+            background: #f3f4f6;
+            border-radius: 10px;
+        }
+        
+        .bible-reader::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+            border-radius: 10px;
+        }
+        
+        .bible-reader::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+        }
+        
+        .verse-number {
+            color: #8b5cf6;
+            font-weight: 700;
+            margin-right: 12px;
+            display: inline-block;
+            min-width: 35px;
+            text-align: right;
+        }
+        
+        /* Carrossel - Estilização */
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            border-radius: 50%;
+            width: 50px !important;
+            height: 50px !important;
+        }
+        
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 20px !important;
+        }
+        
+        .swiper-pagination-bullet-active {
+            background: white !important;
+        }
+        
+        /* Header com logo */
+        .header-logo {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- 
+      HEADER / NAVEGAÇÃO 
+      - Cabeçalho fixo com logo, nome da igreja e links de navegação.
+    -->
+    <header class="glass-effect shadow-lg p-4 fixed w-full top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo e Nome da Igreja -->
+            <div class="flex items-center space-x-3">
+                <img src="https://img.icons8.com/fluency/96/church.png" alt="Logo Igreja" class="header-logo">
+                <a href="#" class="text-2xl font-bold font-serif bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                    Igreja Assembleia de Deus
+                </a>
+            </div>
+            
+            <!-- Navegação para Desktop -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#inicio" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Início</a>
+                <a href="#mensagem" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Mensagem</a>
+                <a href="#sobre" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Sobre Nós</a>
+                <a href="#galeria" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Galeria</a>
+                <a href="#horarios" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Horários</a>
+                <a href="#biblia" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Bíblia</a>
+                <a href="#doacoes" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Doações</a>
+                <a href="#contato" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Contato</a>
+            </nav>
+            
+            <!-- Botão do Menu Móvel (Hamburger) -->
+            <button id="menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:bg-gray-100 transition-colors">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Menu Móvel (Oculto por padrão) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute left-0 right-0 top-full">
+            <a href="#inicio" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 transition-colors">Início</a>
+            <a href="#mensagem" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 transition-colors">Mensagem</a>
+            <a href="#sobre" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 transition-colors">Sobre Nós</a>
+            <a href="#galeria" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 transition-colors">Galeria</a>
+            <a href="#horarios" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 transition-colors">Horários</a>
+            <a href="#biblia" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 transition-colors">Bíblia</a>
+            <a href="#doacoes" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 transition-colors">Doações</a>
+            <a href="#contato" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 transition-colors">Contato</a>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="pt-20"> <!-- Padding para não ficar atrás do header fixo -->
+
+        <!-- 
+          SEÇÃO 1: INÍCIO (HERO)
+          - Hero moderno com gradiente e animação
+        -->
+        <section id="inicio" class="relative min-h-screen flex items-center justify-center text-white overflow-hidden" style="background: linear-gradient(135deg, rgba(30, 64, 175, 0.95) 0%, rgba(79, 70, 229, 0.9) 100%), url('https://images.unsplash.com/photo-1438032005730-c779502df39b?q=80&w=2070') center/cover;">
+            
+            <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+            
+            <div class="relative z-10 container mx-auto px-4 text-center animate-fade-in-up">
+                <div class="mb-8">
+                    <i class="fas fa-dove text-6xl md:text-8xl mb-6 inline-block animate-pulse"></i>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold font-serif mb-6 leading-tight">
+                    Bem-Vindo à Igreja Assembleia de Deus
+                </h1>
+                <p class="text-xl md:text-3xl mb-8 font-light max-w-3xl mx-auto">
+                    Um lugar de fé, esperança e amor. Venha fazer parte da nossa família.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#sobre" class="bg-white text-blue-700 font-bold py-4 px-8 rounded-full text-lg transition duration-300 hover:bg-blue-50 hover:shadow-xl transform hover:-translate-y-1">
+                        <i class="fas fa-heart mr-2"></i>Conheça-nos
+                    </a>
+                    <a href="#biblia" class="bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded-full text-lg transition duration-300 hover:bg-white hover:text-blue-700 transform hover:-translate-y-1">
+                        <i class="fas fa-book-bible mr-2"></i>Leia a Bíblia
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Scroll indicator -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <i class="fas fa-chevron-down text-white text-3xl"></i>
+            </div>
+        </section>
+
+        <!-- 
+          SEÇÃO 2: MENSAGEM DO DIA
+        -->
+        <section id="mensagem" class="py-20 bg-gradient-to-br from-white to-blue-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <i class="fas fa-quote-left text-blue-600 text-4xl mb-4"></i>
+                    <h2 class="text-4xl md:text-5xl font-bold font-serif text-gray-900 mb-4">Mensagem do Dia</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto"></div>
+                </div>
+                <div id="daily-message-content" class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-2xl">
+                    <blockquote class="text-2xl md:text-3xl italic text-gray-700 mb-6 leading-relaxed">
+                        Carregando mensagem...
+                    </blockquote>
+                    <p class="text-xl font-semibold text-blue-600"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+          SEÇÃO 3: SOBRE NÓS
+        -->
+        <section id="sobre" class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold font-serif text-gray-900 mb-4">Nossa História</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto mb-6"></div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+                    <div class="order-2 md:order-1">
+                        <img src="https://i.imgur.com/sPB2Zsf.jpeg" 
+                             alt="Nossa Igreja" 
+                             class="rounded-2xl shadow-2xl w-full h-96 object-cover">
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                            A Igreja Assembleia de Deus nasceu com o propósito de ser um farol de esperança e amor em nossa comunidade. 
+                            Desde nossa fundação, temos nos dedicado a compartilhar a mensagem do Evangelho e a servir 
+                            àqueles que precisam.
+                        </p>
+                        <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                            Nossa missão é criar um ambiente acolhedor onde todos possam experimentar a presença de Deus, 
+                            crescer em fé e desenvolver relacionamentos genuínos.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 mt-8">
+                            <div class="text-center p-6 bg-blue-50 rounded-xl">
+                                <i class="fas fa-users text-4xl text-blue-600 mb-2"></i>
+                                <p class="text-2xl font-bold text-gray-900">50+</p>
+                                <p class="text-gray-600">Membros</p>
+                            </div>
+                            <div class="text-center p-6 bg-indigo-50 rounded-xl">
+                                <i class="fas fa-calendar text-4xl text-indigo-600 mb-2"></i>
+                                <p class="text-2xl font-bold text-gray-900">15+</p>
+                                <p class="text-gray-600">Anos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+          SEÇÃO 4: GALERIA EM CARROSSEL
+        -->
+        <section id="galeria" class="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold font-serif text-gray-900 mb-4">Nossa Galeria</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto mb-6"></div>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Momentos especiais que vivemos juntos em nossa comunidade
+                    </p>
+                </div>
+                
+                <!-- Swiper -->
+                <div class="swiper gallerySwiper max-w-6xl mx-auto">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide">
+                            <div class="relative h-96 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+                                <img src="https://images.unsplash.com/photo-1507692049790-de58290a4334?q=80&w=2070" 
+                                     alt="Culto de Celebração" 
+                                     class="w-full h-full object-cover">
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                                    <h3 class="text-white text-2xl font-bold">Culto de Celebração</h3>
+                                    <p class="text-gray-200">Momentos de louvor e adoração</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 2 -->
+                        <div class="swiper-slide">
+                            <div class="relative h-96 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+                                <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=2070" 
+                                     alt="Comunhão" 
+                                     class="w-full h-full object-cover">
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                                    <h3 class="text-white text-2xl font-bold">Momento de Comunhão</h3>
+                                    <p class="text-gray-200">Unidos em amor e fé</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 3 -->
+                        <div class="swiper-slide">
+                            <div class="relative h-96 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+                                <img src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=2073" 
+                                     alt="Jovens" 
+                                     class="w-full h-full object-cover">
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                                    <h3 class="text-white text-2xl font-bold">Ministério de Jovens</h3>
+                                    <p class="text-gray-200">Nova geração servindo a Deus</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 4 -->
+                        <div class="swiper-slide">
+                            <div class="relative h-96 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+                                <img src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?q=80&w=2070" 
+                                     alt="Ação Social" 
+                                     class="w-full h-full object-cover">
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                                    <h3 class="text-white text-2xl font-bold">Ação Social</h3>
+                                    <p class="text-gray-200">Servindo nossa comunidade</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 5 -->
+                        <div class="swiper-slide">
+                            <div class="relative h-96 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+                                <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?q=80&w=2070" 
+                                     alt="Estudo Bíblico" 
+                                     class="w-full h-full object-cover">
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                                    <h3 class="text-white text-2xl font-bold">Estudo Bíblico</h3>
+                                    <p class="text-gray-200">Aprofundando na Palavra</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navegação -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    
+                    <!-- Paginação -->
+                    <div class="swiper-pagination mt-8"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+          SEÇÃO 5: HORÁRIOS
+        -->
+        <section id="horarios" class="py-20 bg-white">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold font-serif text-gray-900 mb-4">Nossos Cultos e Eventos</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto mb-16"></div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Card 1 -->
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-praying-hands text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-blue-800 mb-3">Libertação</h3>
+                        <p class="text-lg text-gray-700 mb-2 font-semibold">Quartas-feiras, 15h às 18h</p>
+                        <p class="text-gray-600">Momento de libertação e renovação espiritual.</p>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="bg-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-hands-praying text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-indigo-800 mb-3">Consagração</h3>
+                        <p class="text-lg text-gray-700 mb-2 font-semibold">Sextas-feiras, 09h às 12h</p>
+                        <p class="text-gray-600">Tempo de consagração e busca pela presença de Deus.</p>
+                    </div>
+                    
+                    <!-- Card 3 -->
+                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="bg-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-church text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-purple-800 mb-3">Adoração</h3>
+                        <p class="text-lg text-gray-700 mb-2 font-semibold">Domingos, 19h às 21h</p>
+                        <p class="text-gray-600">Culto de adoração e celebração para toda família.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+          SEÇÃO 6: MENSAGENS INSPIRADORAS
+        -->
+        <section id="biblia" class="py-20 bible-container">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <i class="fas fa-dove text-white text-5xl mb-4"></i>
+                    <h2 class="text-4xl md:text-5xl font-bold font-serif text-white mb-4">Mensagens Inspiradoras</h2>
+                    <p class="text-xl text-white max-w-2xl mx-auto mb-8">
+                        Clique nas imagens abaixo para receber uma palavra de inspiração
+                    </p>
+                </div>
+                
+                <div class="max-w-6xl mx-auto">
+                    <!-- Cards de Imagens/Botões -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                        <!-- Botão 1 -->
+                        <button onclick="showInspirationalMessage()" class="group relative overflow-hidden rounded-3xl shadow-2xl transform transition-all duration-500 hover:scale-105 hover:shadow-purple-500/50">
+                            <img src="https://images.unsplash.com/photo-1501952476817-d7ae22e8ee4e?q=80&w=2070" 
+                                 alt="Inspiração 1" 
+                                 class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-purple-900 via-purple-600/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="text-center text-white">
+                                    <i class="fas fa-heart text-6xl mb-4 animate-pulse"></i>
+                                    <h3 class="text-3xl font-bold font-serif">Palavra de Fé</h3>
+                                    <p class="text-lg mt-2">Clique para receber</p>
+                                </div>
+                            </div>
+                        </button>
+                        
+                        <!-- Botão 2 -->
+                        <button onclick="showInspirationalMessage()" class="group relative overflow-hidden rounded-3xl shadow-2xl transform transition-all duration-500 hover:scale-105 hover:shadow-blue-500/50">
+                            <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?q=80&w=2070" 
+                                 alt="Inspiração 2" 
+                                 class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-blue-900 via-blue-600/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="text-center text-white">
+                                    <i class="fas fa-praying-hands text-6xl mb-4 animate-pulse"></i>
+                                    <h3 class="text-3xl font-bold font-serif">Palavra de Esperança</h3>
+                                    <p class="text-lg mt-2">Clique para receber</p>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                    
+                    <!-- Container da Mensagem -->
+                    <div id="message-container" class="hidden">
+                        <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 animate-fade-in-up">
+                            <div class="text-center mb-6">
+                                <i class="fas fa-star text-6xl text-yellow-500 mb-4"></i>
+                            </div>
+                            <div id="inspirational-message" class="text-center">
+                                <!-- Mensagem será inserida aqui -->
+                            </div>
+                            <div class="text-center mt-8">
+                                <button onclick="showInspirationalMessage()" class="bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold py-4 px-8 rounded-xl hover:from-purple-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:scale-105 mr-4">
+                                    <i class="fas fa-sync-alt mr-2"></i>Nova Mensagem
+                                </button>
+                                <button onclick="hideMessage()" class="bg-gray-200 text-gray-700 font-bold py-4 px-8 rounded-xl hover:bg-gray-300 transition-all duration-300">
+                                    <i class="fas fa-times mr-2"></i>Fechar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Link externo -->
+                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-3xl text-center border-2 border-white/30 mt-8">
+                        <p class="text-white mb-4 font-semibold text-lg">
+                            <i class="fas fa-bible mr-2"></i>
+                            Quer ler a Bíblia completa?
+                        </p>
+                        <a href="https://www.bibliaonline.com.br/" target="_blank" rel="noopener noreferrer" 
+                           class="inline-flex items-center bg-white text-purple-700 font-bold py-4 px-8 rounded-xl hover:bg-purple-50 transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:scale-105">
+                            <i class="fas fa-book-open mr-2"></i>Acessar Bíblia Online
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+          SEÇÃO 7: DOAÇÕES (PIX E BANCO)
+        -->
+        <section id="doacoes" class="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+            <div class="container mx-auto px-4 max-w-3xl">
+                <div class="text-center mb-12">
+                    <i class="fas fa-hand-holding-heart text-blue-600 text-5xl mb-4"></i>
+                    <h2 class="text-4xl md:text-5xl font-bold font-serif text-gray-900 mb-4">Contribua Conosco</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto mb-6"></div>
+                    <p class="text-lg text-gray-600">
+                        Sua oferta e dízimo nos ajudam a manter a obra, ajudar pessoas e espalhar o Evangelho.
+                    </p>
+                </div>
+                
+                <!-- Abas de Navegação -->
+                <div class="flex mb-6 rounded-xl overflow-hidden shadow-lg">
+                    <button id="pix-tab" class="flex-1 p-4 font-bold text-lg transition duration-300 tab-active">
+                        <i class="fas fa-qrcode mr-2"></i>PIX
+                    </button>
+                    <button id="banco-tab" class="flex-1 p-4 font-bold text-lg transition duration-300 tab-inactive">
+                        <i class="fas fa-university mr-2"></i>Transferência Bancária
+                    </button>
+                </div>
+                
+                <!-- Conteúdo das Abas -->
+                <div class="bg-white p-8 md:p-10 rounded-2xl shadow-2xl">
+                    <!-- Conteúdo PIX -->
+                    <div id="pix-content">
+                        <div class="text-center">
+                            <i class="fas fa-mobile-alt text-5xl text-blue-600 mb-4"></i>
+                            <h3 class="text-3xl font-bold text-gray-800 mb-6">Doar com PIX</h3>
+                        </div>
+                        
+                        <p class="text-lg text-gray-600 mb-6 text-center">
+                            Você pode usar nossa chave PIX ou escanear o QR Code abaixo:
+                        </p>
+                        
+                        <div class="bg-blue-50 p-6 rounded-xl mb-6">
+                            <p class="text-lg text-gray-700 font-semibold mb-2 text-center">Chave PIX (CNPJ):</p>
+                            <div class="flex items-center justify-center gap-3">
+                                <p class="text-2xl bg-white p-4 rounded-lg font-mono text-blue-600 font-bold shadow-md">
+                                    XX.XXX.XXX/0001-XX
+                                </p>
+                                <button onclick="copyPix()" class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-lg transition-colors">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="inline-block bg-white p-6 rounded-xl shadow-lg">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=00020126580014br.gov.bcb.pix0136a1234567-89ab-cdef-0123-456789abcdef5204000053039865802BR5925IGREJA%20ASSEMBLEIA%20DE%20DEUS6009SAO%20PAULO62410503***50300017br.gov.bcb.brcode01051.0.06304" 
+                                     alt="QR Code PIX" 
+                                     class="w-64 h-64 mx-auto">
+                                <p class="mt-4 text-gray-600">Escaneie este código com seu app de pagamentos</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Conteúdo Transferência Bancária -->
+                    <div id="banco-content" class="hidden">
+                        <div class="text-center mb-8">
+                            <i class="fas fa-university text-5xl text-indigo-600 mb-4"></i>
+                            <h3 class="text-3xl font-bold text-gray-800 mb-2">Dados Bancários</h3>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-indigo-50 to-purple-50 p-6 rounded-xl space-y-4">
+                            <div class="flex justify-between border-b border-indigo-200 pb-3">
+                                <span class="font-bold text-gray-700"><i class="fas fa-building mr-2"></i>Banco:</span>
+                                <span class="text-gray-800">Nome do Banco (Ex: 001)</span>
+                            </div>
+                            <div class="flex justify-between border-b border-indigo-200 pb-3">
+                                <span class="font-bold text-gray-700"><i class="fas fa-code-branch mr-2"></i>Agência:</span>
+                                <span class="text-gray-800">XXXX</span>
+                            </div>
+                            <div class="flex justify-between border-b border-indigo-200 pb-3">
+                                <span class="font-bold text-gray-700"><i class="fas fa-wallet mr-2"></i>Conta Corrente:</span>
+                                <span class="text-gray-800">XXXXX-X</span>
+                            </div>
+                            <div class="flex justify-between border-b border-indigo-200 pb-3">
+                                <span class="font-bold text-gray-700"><i class="fas fa-church mr-2"></i>Nome:</span>
+                                <span class="text-gray-800">Igreja Assembleia de Deus</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="font-bold text-gray-700"><i class="fas fa-id-card mr-2"></i>CNPJ:</span>
+                                <span class="text-gray-800">XX.XXX.XXX/0001-XX</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 text-center text-gray-600">
+                            <i class="fas fa-heart text-red-500 mr-2"></i>
+                            Obrigado por sua generosidade!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+          SEÇÃO 8: CONTATO E LOCALIZAÇÃO
+        -->
+        <section id="contato" class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold font-serif text-gray-900 mb-4">Venha Nos Visitar</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto mb-6"></div>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Estamos de braços abertos para receber você e sua família
+                    </p>
+                </div>
+                
+                <div class="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto">
+                    <!-- Informações de Contato -->
+                    <div class="w-full lg:w-1/2">
+                        <!-- Endereço -->
+                        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl shadow-lg mb-6">
+                            <div class="flex items-start">
+                                <div class="bg-blue-600 w-14 h-14 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Nosso Endereço</h3>
+                                    <address class="text-lg text-gray-600 not-italic space-y-1">
+                                        <p>R. Ubatã, 1 - Santa Amélia</p>
+                                        <p>Belford Roxo - RJ</p>
+                                        <p>CEP: 26116-725</p>
+                                    </address>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Email -->
+                        <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl shadow-lg mb-6">
+                            <div class="flex items-start">
+                                <div class="bg-green-600 w-14 h-14 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-envelope text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Email</h3>
+                                    <a href="mailto:contato@assembleiadedeus.com.br" class="text-lg text-gray-600 hover:text-green-600 transition-colors">
+                                        contato@assembleiadedeus.com.br
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Telefone -->
+                        <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl shadow-lg">
+                            <div class="flex items-start">
+                                <div class="bg-purple-600 w-14 h-14 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-phone text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Telefone</h3>
+                                    <a href="tel:+5511999999999" class="text-lg text-gray-600 hover:text-purple-600 transition-colors">
+                                        (11) 9 9999-9999
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mapa -->
+                    <div class="w-full lg:w-1/2">
+                        <div class="h-full min-h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+                            <iframe 
+                                class="w-full h-full border-0"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d469.0694584541203!2d-43.384709!3d-22.7501438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x99658d9b18b82b%3A0xcb8d9d17ab9bc0a7!2sR.%20Ubat%C3%A3%2C%201%20-%20Santa%20Am%C3%A9lia%2C%20Belford%20Roxo%20-%20RJ%2C%2026116-725!5e0!3m2!1spt-BR!2sbr!4v1698765432101!5m2!1spt-BR!2sbr" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 
+      FOOTER
+    -->
+    <footer class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <!-- Sobre -->
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="https://img.icons8.com/fluency/48/church.png" alt="Logo" class="w-10 h-10 mr-3">
+                        <h3 class="text-2xl font-bold font-serif">Igreja Assembleia de Deus</h3>
+                    </div>
+                    <p class="text-blue-200">
+                        Uma comunidade de fé, esperança e amor, servindo a Deus e ao próximo.
+                    </p>
+                </div>
+                
+                <!-- Links Rápidos -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Links Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="text-blue-200 hover:text-white transition-colors"><i class="fas fa-angle-right mr-2"></i>Início</a></li>
+                        <li><a href="#sobre" class="text-blue-200 hover:text-white transition-colors"><i class="fas fa-angle-right mr-2"></i>Sobre Nós</a></li>
+                        <li><a href="#horarios" class="text-blue-200 hover:text-white transition-colors"><i class="fas fa-angle-right mr-2"></i>Horários</a></li>
+                        <li><a href="#contato" class="text-blue-200 hover:text-white transition-colors"><i class="fas fa-angle-right mr-2"></i>Contato</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Redes Sociais -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Siga-nos</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-white bg-opacity-20 hover:bg-opacity-30 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110" title="Facebook">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="bg-white bg-opacity-20 hover:bg-opacity-30 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110" title="Instagram">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="bg-white bg-opacity-20 hover:bg-opacity-30 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110" title="YouTube">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="#" class="bg-white bg-opacity-20 hover:bg-opacity-30 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110" title="WhatsApp">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-blue-700 pt-8 text-center">
+                <p class="text-blue-200">
+                    &copy; 2025 Igreja Assembleia de Deus. Todos os direitos reservados. 
+                    <i class="fas fa-heart text-red-400 mx-2"></i> 
+                    Feito com amor para a glória de Deus
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT JAVASCRIPT -->
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- LÓGICA DO MENU MÓVEL ---
+            const menuButton = document.getElementById('menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Fecha o menu móvel ao clicar em um link
+            mobileMenu.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+
+            // --- LÓGICA DA MENSAGEM DO DIA ---
+            const messages = [
+                { quote: "Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito, para que todo aquele que nele crê não pereça, mas tenha a vida eterna.", verse: "João 3:16" },
+                { quote: "O Senhor é o meu pastor; nada me faltará.", verse: "Salmos 23:1" },
+                { quote: "Posso todas as coisas naquele que me fortalece.", verse: "Filipenses 4:13" },
+                { quote: "No princípio era o Verbo, e o Verbo estava com Deus, e o Verbo era Deus.", verse: "João 1:1" },
+                { quote: "O amor é paciente, o amor é bondoso. Não inveja, não se vangloria, não se orgulha.", verse: "1 Coríntios 13:4" },
+                { quote: "Porque vivemos por fé, e não pelo que vemos.", verse: "2 Coríntios 5:7" },
+                { quote: "O Senhor te abençoe e te guarde; o Senhor faça resplandecer o seu rosto sobre ti e te conceda graça.", verse: "Números 6:24-25" },
+                { quote: "Deleita-te também no Senhor, e te concederá os desejos do teu coração.", verse: "Salmos 37:4" },
+                { quote: "Ensina-nos a contar os nossos dias, de tal maneira que alcancemos corações sábios.", verse: "Salmos 90:12" },
+                { quote: "Vinde a mim, todos os que estais cansados e oprimidos, e eu vos aliviarei.", verse: "Mateus 11:28" }
+            ];
+            
+            const today = new Date();
+            const start = new Date(today.getFullYear(), 0, 0);
+            const diff = today - start;
+            const oneDay = 1000 * 60 * 60 * 24;
+            const dayOfYear = Math.floor(diff / oneDay);
+            
+            const messageIndex = dayOfYear % messages.length;
+            const dailyMessage = messages[messageIndex];
+            
+            const messageContainer = document.getElementById('daily-message-content');
+            messageContainer.innerHTML = `
+                <blockquote class="text-2xl md:text-3xl italic text-gray-700 mb-6 leading-relaxed">
+                    <i class="fas fa-quote-left text-blue-400 mr-2"></i>
+                    "${dailyMessage.quote}"
+                    <i class="fas fa-quote-right text-blue-400 ml-2"></i>
+                </blockquote>
+                <p class="text-xl font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                    - ${dailyMessage.verse}
+                </p>
+            `;
+
+            // --- LÓGICA DAS ABAS DE DOAÇÃO ---
+            const pixTab = document.getElementById('pix-tab');
+            const bancoTab = document.getElementById('banco-tab');
+            const pixContent = document.getElementById('pix-content');
+            const bancoContent = document.getElementById('banco-content');
+            
+            pixTab.addEventListener('click', () => {
+                pixContent.classList.remove('hidden');
+                bancoContent.classList.add('hidden');
+                pixTab.className = 'flex-1 p-4 font-bold text-lg transition duration-300 bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg';
+                bancoTab.className = 'flex-1 p-4 font-bold text-lg transition duration-300 bg-gray-200 text-gray-700 hover:bg-gray-300';
+            });
+            
+            bancoTab.addEventListener('click', () => {
+                bancoContent.classList.remove('hidden');
+                pixContent.classList.add('hidden');
+                bancoTab.className = 'flex-1 p-4 font-bold text-lg transition duration-300 bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg';
+                pixTab.className = 'flex-1 p-4 font-bold text-lg transition duration-300 bg-gray-200 text-gray-700 hover:bg-gray-300';
+            });
+
+            // --- INICIALIZAÇÃO DO CARROSSEL (SWIPER) ---
+            const swiper = new Swiper('.gallerySwiper', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true
+                }
+            });
+            
+        });
+
+        // --- MENSAGENS INSPIRADORAS ---
+        const inspirationalMessages = [
+            { 
+                quote: "Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito, para que todo aquele que nele crê não pereça, mas tenha a vida eterna.", 
+                verse: "João 3:16",
+                icon: "fa-heart"
+            },
+            { 
+                quote: "O Senhor é o meu pastor; nada me faltará.", 
+                verse: "Salmos 23:1",
+                icon: "fa-praying-hands"
+            },
+            { 
+                quote: "Posso todas as coisas naquele que me fortalece.", 
+                verse: "Filipenses 4:13",
+                icon: "fa-fist-raised"
+            },
+            { 
+                quote: "Não temas, porque eu sou contigo; não te assombres, porque eu sou o teu Deus; eu te fortaleço, e te ajudo, e te sustento com a minha destra fiel.", 
+                verse: "Isaías 41:10",
+                icon: "fa-shield-alt"
+            },
+            { 
+                quote: "Confia no Senhor de todo o teu coração e não te estribes no teu próprio entendimento.", 
+                verse: "Provérbios 3:5",
+                icon: "fa-hands"
+            },
+            { 
+                quote: "O amor é paciente, o amor é bondoso. Não inveja, não se vangloria, não se orgulha.", 
+                verse: "1 Coríntios 13:4",
+                icon: "fa-heart"
+            },
+            { 
+                quote: "Vinde a mim, todos os que estais cansados e oprimidos, e eu vos aliviarei.", 
+                verse: "Mateus 11:28",
+                icon: "fa-dove"
+            },
+            { 
+                quote: "O Senhor te abençoe e te guarde; o Senhor faça resplandecer o seu rosto sobre ti e te conceda graça.", 
+                verse: "Números 6:24-25",
+                icon: "fa-sun"
+            },
+            { 
+                quote: "Porque vivemos por fé, e não pelo que vemos.", 
+                verse: "2 Coríntios 5:7",
+                icon: "fa-eye"
+            },
+            { 
+                quote: "Deleita-te também no Senhor, e te concederá os desejos do teu coração.", 
+                verse: "Salmos 37:4",
+                icon: "fa-star"
+            },
+            { 
+                quote: "Lança o teu cuidado sobre o Senhor, e ele te susterá; jamais permitirá que o justo seja abalado.", 
+                verse: "Salmos 55:22",
+                icon: "fa-anchor"
+            },
+            { 
+                quote: "Tudo posso naquele que me fortalece.", 
+                verse: "Filipenses 4:13",
+                icon: "fa-mountain"
+            },
+            { 
+                quote: "Entrega o teu caminho ao Senhor; confia nele, e ele o fará.", 
+                verse: "Salmos 37:5",
+                icon: "fa-route"
+            },
+            { 
+                quote: "Mas os que esperam no Senhor renovam as suas forças; sobem com asas como águias.", 
+                verse: "Isaías 40:31",
+                icon: "fa-dove"
+            },
+            { 
+                quote: "O Senhor é a minha luz e a minha salvação; de quem terei temor?", 
+                verse: "Salmos 27:1",
+                icon: "fa-lightbulb"
+            },
+            { 
+                quote: "Alegrai-vos sempre no Senhor; outra vez digo: alegrai-vos!", 
+                verse: "Filipenses 4:4",
+                icon: "fa-smile"
+            },
+            { 
+                quote: "A paz vos deixo, a minha paz vos dou; não vo-la dou como o mundo a dá.", 
+                verse: "João 14:27",
+                icon: "fa-peace"
+            },
+            { 
+                quote: "Bem-aventurados os que têm fome e sede de justiça, porque eles serão fartos.", 
+                verse: "Mateus 5:6",
+                icon: "fa-bread-slice"
+            },
+            { 
+                quote: "Lâmpada para os meus pés é a tua palavra e luz, para o meu caminho.", 
+                verse: "Salmos 119:105",
+                icon: "fa-candle-holder"
+            },
+            { 
+                quote: "O Senhor é bom, refúgio em dia de angústia, e conhece os que nele confiam.", 
+                verse: "Naum 1:7",
+                icon: "fa-home-heart"
+            }
+        ];
+
+        let lastMessageIndex = -1;
+
+        function showInspirationalMessage() {
+            // Seleciona uma mensagem aleatória diferente da anterior
+            let randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * inspirationalMessages.length);
+            } while (randomIndex === lastMessageIndex && inspirationalMessages.length > 1);
+            
+            lastMessageIndex = randomIndex;
+            const message = inspirationalMessages[randomIndex];
+            
+            const messageContainer = document.getElementById('message-container');
+            const messageContent = document.getElementById('inspirational-message');
+            
+            messageContent.innerHTML = `
+                <i class="fas ${message.icon} text-7xl text-purple-600 mb-6"></i>
+                <blockquote class="text-2xl md:text-3xl italic text-gray-800 mb-6 leading-relaxed font-serif">
+                    "${message.quote}"
+                </blockquote>
+                <div class="inline-block bg-gradient-to-r from-purple-100 to-blue-100 px-6 py-3 rounded-full">
+                    <p class="text-xl font-bold text-purple-700">
+                        ${message.verse}
+                    </p>
+                </div>
+            `;
+            
+            messageContainer.classList.remove('hidden');
+            messageContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function hideMessage() {
+            const messageContainer = document.getElementById('message-container');
+            messageContainer.classList.add('hidden');
+        }
+
+        // Função para copiar chave PIX
+        function copyPix() {
+            const pixKey = 'XX.XXX.XXX/0001-XX';
+            navigator.clipboard.writeText(pixKey).then(() => {
+                alert('Chave PIX copiada!');
+            }).catch(err => {
+                console.error('Erro ao copiar:', err);
+            });
+        }
+    </script>
+</body>
+</html>
